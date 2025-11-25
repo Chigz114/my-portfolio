@@ -1,6 +1,6 @@
 export default function BlogPage() {
   return (
-    <section className="container py-8 md:py-10">
+    <section className="w-full px-4 md:px-8 py-8 md:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-extrabold tracking-tight text-4xl lg:text-5xl">
