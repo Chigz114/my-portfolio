@@ -45,6 +45,21 @@ export default function BlogPage() {
 
         {categories.map(category => (
           <TabsContent key={category} value={category} className="space-y-6">
+            {category.toLowerCase() === "stm32" && (
+              <div className="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground">
+                <p>
+                  The self-balancing robot tutorials in this section are adapted from my Chinese articles 
+                  originally written for the <strong>Electronic Design Club</strong> at{" "}
+                  <a href="https://zjui.intl.zju.edu.cn/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                    ZJUI (Zhejiang University - University of Illinois Urbana-Champaign Joint Institute)
+                  </a>.{" "}
+                  Visit the club website:{" "}
+                  <a href="https://elec.marslab.xyz" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
+                    elec.marslab.xyz
+                  </a>
+                </p>
+              </div>
+            )}
             {posts
               .filter(post => post.category === category)
               .map((post) => (
