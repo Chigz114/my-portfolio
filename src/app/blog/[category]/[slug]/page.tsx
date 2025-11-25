@@ -7,6 +7,7 @@ import { ChevronLeft } from "lucide-react"
 
 interface BlogPostParams {
   params: Promise<{
+    category: string
     slug: string
   }>
 }
@@ -14,22 +15,30 @@ interface BlogPostParams {
 export async function generateStaticParams() {
   const posts = getSortedPostsData()
   return posts.map((post) => ({
+    category: post.category,
     slug: post.slug,
   }))
 }
 
 export default async function BlogPost({ params }: BlogPostParams) {
-  const { slug } = await params
-  const post = getPostData(slug)
+  const { category, slug } = await params
+  const post = getPostData(category, slug)
 
   return (
     <article className="container max-w-3xl py-8 md:py-10 mx-auto">
-      <Button variant="ghost" asChild className="mb-8 pl-0 hover:bg-transparent hover:text-primary">
-        <Link href="/blog">
-          <ChevronLeft className="mr-2 h-4 w-4" />
-          Back to Blog
-        </Link>
-      </Button>
+      <div className="flex items-center gap-4 mb-8">
+        <Button variant="ghost" asChild className="pl-0 hover:bg-transparent hover:text-primary">
+          <Link href="/blog">
+            <ChevronLeft className="mr-2 h-4 w-4" />
+            Back to Blog
+          </Link>
+        </Button>
+        <div className="ml-auto">
+          <Badge variant="outline" className="uppercase tracking-wide">
+            {post.category}
+          </Badge>
+        </div>
+      </div>
 
       <div className="space-y-4 mb-8 text-center">
         <h1 className="inline-block font-extrabold tracking-tight text-4xl lg:text-5xl">

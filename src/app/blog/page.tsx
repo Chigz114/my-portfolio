@@ -21,14 +21,19 @@ export default function BlogPage() {
       <hr className="w-full max-w-2xl my-8" />
       <div className="grid gap-6 w-full max-w-2xl">
         {posts.map((post) => (
-          <Link key={post.slug} href={`/blog/${post.slug}`}>
+          <Link key={post.slug} href={`/blog/${post.category}/${post.slug}`}>
             <Card className="hover:border-primary/50 transition-colors text-left">
               <CardHeader>
                 <div className="flex justify-between items-start">
-                  <CardTitle className="text-xl">{post.title}</CardTitle>
-                  <span className="text-sm text-muted-foreground">{post.date}</span>
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs uppercase">{post.category}</Badge>
+                      <span className="text-sm text-muted-foreground">{post.date}</span>
+                    </div>
+                    <CardTitle className="text-xl">{post.title}</CardTitle>
+                  </div>
                 </div>
-                <CardDescription>{post.description}</CardDescription>
+                <CardDescription className="pt-2">{post.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex gap-2">

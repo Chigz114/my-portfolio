@@ -6,6 +6,7 @@ const postsDirectory = path.join(process.cwd(), "content/blog");
 
 export type Post = {
   slug: string;
+  category: string;
   title: string;
   date: string;
   description: string;
@@ -13,30 +14,52 @@ export type Post = {
   content: string;
 };
 
+// Helper function to recursively get all files
+function getAllFiles(dirPath: string, arrayOfFiles: string[] = []) {
+  const files = fs.readdirSync(dirPath);
+
+  files.forEach((file) => {
+    if (fs.statSync(path.join(dirPath, file)).isDirectory()) {
+      arrayOfFiles = getAllFiles(path.join(dirPath, file), arrayOfFiles);
+    } else {
+      arrayOfFiles.push(path.join(dirPath, file));
+    }
+  });
+
+  return arrayOfFiles;
+}
+
 export function getSortedPostsData(): Post[] {
-  // Get file names under /posts
   if (!fs.existsSync(postsDirectory)) {
     return [];
   }
 
-  const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get id
-    const slug = fileName.replace(/\.md$/, "");
+  // Get all markdown files recursively
+  const allFiles = getAllFiles(postsDirectory);
+  
+  const allPostsData = allFiles
+    .filter((file) => file.endsWith(".md"))
+    .map((fullPath) => {
+      // Extract category and slug from path relative to postsDirectory
+      // e.g., content/blog/hardware/pcb-design.md -> category: hardware, slug: pcb-design
+      const relativePath = path.relative(postsDirectory, fullPath);
+      const pathParts = relativePath.split(path.sep);
+      
+      // Handle cases where file might be at root or in subdir
+      const category = pathParts.length > 1 ? pathParts[0] : "uncategorized";
+      const fileName = pathParts[pathParts.length - 1];
+      const slug = fileName.replace(/\.md$/, "");
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+      const fileContents = fs.readFileSync(fullPath, "utf8");
+      const { data, content } = matter(fileContents);
 
-    // Use gray-matter to parse the post metadata section
-    const { data, content } = matter(fileContents);
-
-    return {
-      slug,
-      content,
-      ...(data as { title: string; date: string; description: string; tags: string[] }),
-    };
-  });
+      return {
+        slug,
+        category,
+        content,
+        ...(data as { title: string; date: string; description: string; tags: string[] }),
+      };
+    });
 
   // Sort posts by date
   return allPostsData.sort((a, b) => {
@@ -48,15 +71,19 @@ export function getSortedPostsData(): Post[] {
   });
 }
 
-export function getPostData(slug: string): Post {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+export function getPostData(category: string, slug: string): Post {
+  // Construct path based on category
+  // If category is 'uncategorized', check root, otherwise check subdir
+  const fullPath = category === "uncategorized" 
+    ? path.join(postsDirectory, `${slug}.md`)
+    : path.join(postsDirectory, category, `${slug}.md`);
+    
   const fileContents = fs.readFileSync(fullPath, "utf8");
-
-  // Use gray-matter to parse the post metadata section
   const { data, content } = matter(fileContents);
 
   return {
     slug,
+    category,
     content,
     ...(data as { title: string; date: string; description: string; tags: string[] }),
   };
