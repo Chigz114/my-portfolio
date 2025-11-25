@@ -1,8 +1,9 @@
 import Link from "next/link"
 import { getSortedPostsData } from "@/lib/blog"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 export default function BlogPage() {
   const posts = getSortedPostsData()
@@ -58,8 +59,8 @@ export default function BlogPage() {
 
 function BlogCard({ post }: { post: any }) {
   return (
-    <Link href={`/blog/${post.category}/${post.slug}`} className="block">
-      <Card className="hover:border-primary/50 transition-colors text-left h-full">
+    <Link href={`/blog/${post.category}/${post.slug}`} className="block group">
+      <SpotlightCard className="h-full" spotlightColor="rgba(255, 255, 255, 0.1)">
         <CardHeader>
           <div className="flex justify-between items-start">
             <div className="space-y-1">
@@ -67,7 +68,7 @@ function BlogCard({ post }: { post: any }) {
                 <Badge variant="outline" className="text-xs uppercase">{post.category}</Badge>
                 <span className="text-sm text-muted-foreground">{post.date}</span>
               </div>
-              <CardTitle className="text-xl">{post.title}</CardTitle>
+              <CardTitle className="text-xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
             </div>
           </div>
           <CardDescription className="pt-2">{post.description}</CardDescription>
@@ -81,7 +82,7 @@ function BlogCard({ post }: { post: any }) {
             ))}
           </div>
         </CardContent>
-      </Card>
+      </SpotlightCard>
     </Link>
   )
 }
