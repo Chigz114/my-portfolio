@@ -161,3 +161,12 @@
 .dark .prose td {
   color: #e5e5e5;
 }
+
+/* Math equation centering */
+.katex-display {
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0;
+}
+

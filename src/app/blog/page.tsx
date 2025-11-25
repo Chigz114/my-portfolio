@@ -10,6 +10,13 @@ export default function BlogPage() {
   
   // Extract unique categories
   const categories = Array.from(new Set(posts.map(post => post.category)))
+
+  const formatCategory = (cat: string) => {
+    if (cat.toLowerCase() === 'fpga') return 'FPGA'
+    if (cat.toLowerCase() === 'stm32') return 'STM32'
+    if (cat.toLowerCase() === 'pcb-design') return 'PCB-Design'
+    return cat.charAt(0).toUpperCase() + cat.slice(1)
+  }
   
   return (
     <section className="w-full px-4 md:px-8 py-8 md:py-10 flex flex-col items-center">
@@ -31,7 +38,7 @@ export default function BlogPage() {
             <TabsTrigger value="all">All Posts</TabsTrigger>
             {categories.map(category => (
               <TabsTrigger key={category} value={category}>
-                {category}
+                {formatCategory(category)}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -71,6 +78,13 @@ export default function BlogPage() {
 }
 
 function BlogCard({ post }: { post: any }) {
+  const formatCategory = (cat: string) => {
+    if (cat.toLowerCase() === 'fpga') return 'FPGA'
+    if (cat.toLowerCase() === 'stm32') return 'STM32'
+    if (cat.toLowerCase() === 'pcb-design') return 'PCB-Design'
+    return cat.charAt(0).toUpperCase() + cat.slice(1)
+  }
+
   return (
     <Link href={`/blog/${post.category}/${post.slug}`} className="block group">
       <SpotlightCard className="h-full" spotlightColor="rgba(255, 255, 255, 0.1)">
@@ -78,7 +92,7 @@ function BlogCard({ post }: { post: any }) {
           <div className="flex justify-between items-start">
             <div className="space-y-1">
               <div className="flex items-center gap-2">
-                <Badge variant="outline" className="text-xs uppercase">{post.category}</Badge>
+                <Badge variant="outline" className="text-xs uppercase">{formatCategory(post.category)}</Badge>
                 <span className="text-sm text-muted-foreground">{post.date}</span>
               </div>
               <CardTitle className="text-xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
