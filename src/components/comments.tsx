@@ -1,24 +1,24 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useTheme } from "next-themes"
 
 export function Comments() {
   const ref = useRef<HTMLDivElement>(null)
   const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    if (!ref.current) return
+    setMounted(true)
+  }, [])
 
-    // Clear existing giscus iframe
-    const existingScript = ref.current.querySelector("script.giscus")
-    if (existingScript) {
-      existingScript.remove()
-    }
-    const existingWidget = ref.current.querySelector(".giscus")
-    if (existingWidget) {
-      existingWidget.remove()
-    }
+  useEffect(() => {
+    if (!mounted || !ref.current) return
+
+    const theme = resolvedTheme === "dark" ? "dark" : "light"
+
+    // Clear existing giscus
+    ref.current.innerHTML = ""
 
     const script = document.createElement("script")
     script.src = "https://giscus.app/client.js"
@@ -28,23 +28,30 @@ export function Comments() {
     script.setAttribute("data-category-id", "DIC_kwDOQcVxus4CzCLk")
     script.setAttribute("data-mapping", "pathname")
     script.setAttribute("data-strict", "0")
-    script.setAttribute("data-reactions-enabled", "1")
+    script.setAttribute("data-reactions-enabled", "0")
     script.setAttribute("data-emit-metadata", "0")
     script.setAttribute("data-input-position", "top")
-    script.setAttribute("data-theme", resolvedTheme === "dark" ? "dark" : "light")
-    script.setAttribute("data-lang", "zh-CN")
-    script.setAttribute("data-loading", "lazy")
+    script.setAttribute("data-theme", theme)
+    script.setAttribute("data-lang", "en")
     script.crossOrigin = "anonymous"
     script.async = true
-    script.className = "giscus"
 
     ref.current.appendChild(script)
-  }, [resolvedTheme])
+  }, [mounted, resolvedTheme])
+
+  if (!mounted) {
+    return (
+      <section className="mt-12">
+        <h2 className="mb-6 text-2xl font-bold">Comments</h2>
+        <div className="h-32 animate-pulse rounded bg-muted" />
+      </section>
+    )
+  }
 
   return (
     <section className="mt-12">
-      <h2 className="mb-6 text-2xl font-bold">评论</h2>
-      <div ref={ref} />
+      <h2 className="mb-6 text-2xl font-bold">Comments</h2>
+      <div ref={ref} className="giscus" />
     </section>
   )
 }
