@@ -30,7 +30,7 @@ export default function BlogPage() {
           <TabsList>
             <TabsTrigger value="all">All Posts</TabsTrigger>
             {categories.map(category => (
-              <TabsTrigger key={category} value={category} className="capitalize">
+              <TabsTrigger key={category} value={category}>
                 {category}
               </TabsTrigger>
             ))}
@@ -49,10 +49,8 @@ export default function BlogPage() {
               <div className="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground">
                 <p>
                   The self-balancing robot tutorials in this section are adapted from my Chinese articles 
-                  originally written for the <strong>Electronic Design Club</strong> at{" "}
-                  <a href="https://zjui.intl.zju.edu.cn/" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                    ZJUI (Zhejiang University - University of Illinois Urbana-Champaign Joint Institute)
-                  </a>.{" "}
+                  originally written for the <strong>Electronic Design Club</strong> at ZJUI 
+                  (Zhejiang University - University of Illinois Urbana-Champaign Joint Institute).{" "}
                   Visit the club website:{" "}
                   <a href="https://elec.marslab.xyz" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
                     elec.marslab.xyz
