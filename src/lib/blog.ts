@@ -72,11 +72,14 @@ export function getSortedPostsData(): Post[] {
 }
 
 export function getPostData(category: string, slug: string): Post {
+  // Decode category to handle URL encoding (e.g., "PCB%20Design" -> "PCB Design")
+  const decodedCategory = decodeURIComponent(category);
+
   // Construct path based on category
   // If category is 'uncategorized', check root, otherwise check subdir
-  const fullPath = category === "uncategorized" 
+  const fullPath = decodedCategory === "uncategorized" 
     ? path.join(postsDirectory, `${slug}.md`)
-    : path.join(postsDirectory, category, `${slug}.md`);
+    : path.join(postsDirectory, decodedCategory, `${slug}.md`);
     
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
