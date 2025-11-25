@@ -3,18 +3,18 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+    <section className="container flex flex-col items-center justify-center gap-6 pb-8 pt-6 md:py-20 text-center">
+      <div className="flex max-w-[980px] flex-col items-center gap-4">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
           Engineering Portfolio <br className="hidden sm:inline" />
           Built with Next.js 14 & Shadcn UI.
         </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
+        <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
           Hi, I'm a UIUC EE student passionate about embedded systems and PCB design.
           This is where I showcase my projects and document my learning journey.
         </p>
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 justify-center">
         <Button asChild>
           <Link href="/projects">
             View Projects

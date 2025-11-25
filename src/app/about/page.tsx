@@ -16,9 +16,6 @@ export default function AboutPage() {
         <p>
           Hello! I am a junior studying Electrical Engineering at the University of Illinois Urbana-Champaign.
         </p>
-        <p>
-          My interests lie in the intersection of hardware and software. I enjoy designing PCBs, writing firmware for microcontrollers, and building full-stack web applications to visualize hardware data.
-        </p>
       </div>
     </section>
   )
