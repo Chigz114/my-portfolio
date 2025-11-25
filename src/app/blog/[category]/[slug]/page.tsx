@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft } from "lucide-react"
+import { ZoomableImage } from "@/components/zoomable-image"
 
 interface BlogPostParams {
   params: Promise<{
@@ -59,7 +60,15 @@ export default async function BlogPost({ params }: BlogPostParams) {
       <hr className="my-8" />
 
       <div className="prose dark:prose-invert max-w-none">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
+        <ReactMarkdown
+          components={{
+            img: ({ node, ...props }) => (
+              <ZoomableImage {...props} />
+            ),
+          }}
+        >
+          {post.content}
+        </ReactMarkdown>
       </div>
     </article>
   )
