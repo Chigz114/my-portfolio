@@ -7,6 +7,7 @@ import { Menu, CircuitBoard } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ModeToggle } from "@/components/mode-toggle"
 
 export function MainNav() {
   const pathname = usePathname()
@@ -66,7 +67,7 @@ export function MainNav() {
           <div className="w-full flex-1 md:w-auto md:flex-none">
             {/* Add search functionality later */}
           </div>
-          <nav className="flex items-center">
+          <nav className="flex items-center space-x-2">
             <Button variant="ghost" size="icon" asChild>
               <Link href="https://github.com" target="_blank" rel="noreferrer">
                 {/* GitHub Icon would go here, using text for now or lucide */}
@@ -74,6 +75,7 @@ export function MainNav() {
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
+            <ModeToggle />
           </nav>
         </div>
       </div>
