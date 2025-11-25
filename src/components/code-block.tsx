@@ -25,9 +25,9 @@ export function CodeBlock({ children, className }: CodeBlockProps) {
   }
 
   return (
-    <div className="relative my-6 overflow-hidden rounded-xl border bg-[#1e1e1e] dark:border-zinc-800">
+    <div className="relative my-4 overflow-hidden rounded-lg border bg-[#1e1e1e] dark:border-zinc-800">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-zinc-800 bg-[#1e1e1e] px-4 py-2 text-zinc-400">
+      <div className="flex items-center justify-between border-b border-zinc-800 bg-[#1e1e1e] px-3 py-1.5 text-zinc-400">
         <div className="flex items-center gap-2">
           {filename ? (
             <span className="text-xs font-medium text-zinc-100">{filename}</span>
@@ -52,8 +52,8 @@ export function CodeBlock({ children, className }: CodeBlockProps) {
         language={language as any}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <div className="overflow-x-auto py-2">
-            <pre className={cn(className, "float-left min-w-full px-4 font-mono text-sm")} style={{ ...style, backgroundColor: "transparent" }}>
+          <div className="overflow-x-auto">
+            <pre className={cn(className, "float-left min-w-full px-3 py-2 font-mono text-sm leading-relaxed")} style={{ ...style, backgroundColor: "transparent" }}>
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line })}>
                   <span className="mr-4 inline-block w-4 select-none text-right text-xs text-zinc-600">

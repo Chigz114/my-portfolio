@@ -69,19 +69,14 @@ export default async function BlogPost({ params }: BlogPostParams) {
               img: ({ node, ...props }) => (
                 <ZoomableImage {...props} />
               ),
-              pre: ({ children }) => <>{children}</>,
-              code: ({ node, inline, className, children, ...props }: any) => {
-                const match = /language-(\w+)/.exec(className || '')
-                if (inline) {
-                  return (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  )
-                }
+              pre: ({ node, children, ...props }: any) => {
+                // Extract the code element from pre's children
+                const codeElement = (children as any)?.props
+                const className = codeElement?.className || ''
+                const code = codeElement?.children || ''
                 return (
                   <CodeBlock className={className}>
-                    {String(children).replace(/\n$/, '')}
+                    {String(code).replace(/\n$/, '')}
                   </CodeBlock>
                 )
               }
