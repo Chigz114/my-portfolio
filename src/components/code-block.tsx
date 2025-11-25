@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-// import { Highlight, themes } from "prism-react-renderer" 
+import { Highlight, themes } from "prism-react-renderer"
 import { Check, Copy } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -45,14 +45,29 @@ export function CodeBlock({ children, className }: CodeBlockProps) {
         </Button>
       </div>
 
-      {/* Code Fallback (since prism install is pending) */}
-      <div className="overflow-x-auto py-4">
-        <pre className={cn("float-left min-w-full px-4 font-mono text-sm text-zinc-100")} style={{ backgroundColor: "transparent" }}>
-          <code className={className}>
-            {children}
-          </code>
-        </pre>
-      </div>
+      {/* Code */}
+      <Highlight
+        theme={themes.vsDark}
+        code={children.trim()}
+        language={language as any}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <div className="overflow-x-auto py-4">
+            <pre className={cn(className, "float-left min-w-full px-4 font-mono text-sm")} style={{ ...style, backgroundColor: "transparent" }}>
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line })}>
+                  <span className="mr-4 inline-block w-4 select-none text-right text-xs text-zinc-600">
+                    {i + 1}
+                  </span>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          </div>
+        )}
+      </Highlight>
     </div>
   )
 }
