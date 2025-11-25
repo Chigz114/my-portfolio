@@ -96,9 +96,7 @@ The whole system is a classic embedded SoC design. Data flow can be clearly divi
 - AXI-Lite Slave: receives triangle vertex data, colors, and texture coordinates from MicroBlaze.
 - AXI-Stream Master: streams rendered pixel lines to VDMA.
 
-<img src="/images/blog/fpga/renderer.svg" alt="renderer" style="zoom:150%;" />
-
-
+![renderer](/images/blog/fpga/renderer.svg)
 
 ## Summary
 
