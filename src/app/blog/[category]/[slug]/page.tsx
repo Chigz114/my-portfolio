@@ -69,16 +69,20 @@ export default async function BlogPost({ params }: BlogPostParams) {
               img: ({ node, ...props }) => (
                 <ZoomableImage {...props} />
               ),
+              pre: ({ children }) => <>{children}</>,
               code: ({ node, inline, className, children, ...props }: any) => {
                 const match = /language-(\w+)/.exec(className || '')
-                return !inline ? (
+                if (inline) {
+                  return (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  )
+                }
+                return (
                   <CodeBlock className={className}>
                     {String(children).replace(/\n$/, '')}
                   </CodeBlock>
-                ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
                 )
               }
             }}
