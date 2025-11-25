@@ -7,6 +7,7 @@ import { ChevronLeft } from "lucide-react"
 import { ZoomableImage } from "@/components/zoomable-image"
 import { ReadingProgress } from "@/components/reading-progress"
 import { CodeBlock } from "@/components/code-block"
+import { Comments } from "@/components/comments"
 
 interface BlogPostParams {
   params: Promise<{
@@ -85,6 +86,8 @@ export default async function BlogPost({ params }: BlogPostParams) {
             {post.content}
           </ReactMarkdown>
         </div>
+
+        <Comments />
       </article>
     </>
   )
