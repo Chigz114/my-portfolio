@@ -2,6 +2,13 @@ import { ProjectCard } from "@/components/project-card"
 
 const projects = [
   {
+    title: "ESP32 BLE-MQTT Gateway",
+    description: "Low-power IoT gateway with dual-mode operation (Scanner/Broadcaster). Features interrupt-driven channel switching, smart deep sleep scheduling, and BLE data deduplication.",
+    tags: ["ESP32", "IoT", "BLE", "MQTT", "NimBLE", "ESP-IDF"],
+    githubUrl: "https://github.com",
+    demoUrl: "/blog/ESP32",
+  },
+  {
     title: "STM32 Robotic Arm Controller",
     description: "A 6-DOF robotic arm controller built with STM32F4. Features real-time inverse kinematics solving and CAN bus communication.",
     tags: ["C++", "STM32", "Altium Designer", "Robotics", "FreeRTOS"],
