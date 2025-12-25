@@ -3,37 +3,12 @@ import { ProjectCard } from "@/components/project-card"
 const projects = [
   {
     title: "ESP32 BLE-MQTT Gateway",
-    description: "Low-power IoT gateway with dual-mode operation (Scanner/Broadcaster). Features interrupt-driven channel switching, smart deep sleep scheduling, and BLE data deduplication.",
+    description:
+      "Low-power IoT gateway with dual-mode operation (Scanner/Broadcaster). Features interrupt-driven channel switching, smart deep sleep scheduling, and BLE data deduplication.",
     tags: ["ESP32", "IoT", "BLE", "MQTT", "NimBLE", "ESP-IDF"],
     githubUrl: "https://github.com",
     demoUrl: "/blog/ESP32",
   },
-  {
-    title: "STM32 Robotic Arm Controller",
-    description: "A 6-DOF robotic arm controller built with STM32F4. Features real-time inverse kinematics solving and CAN bus communication.",
-    tags: ["C++", "STM32", "Altium Designer", "Robotics", "FreeRTOS"],
-    githubUrl: "https://github.com",
-    demoUrl: "https://youtube.com",
-  },
-  {
-    title: "High-Speed Data Acquisition PCB",
-    description: "Designed a 4-layer PCB for high-frequency signal acquisition. Integrated 16-bit ADC and FPGA interface with impedance control.",
-    tags: ["Altium Designer", "PCB Design", "Signal Integrity", "FPGA"],
-    githubUrl: "https://github.com",
-  },
-  {
-    title: "Next.js Engineering Portfolio",
-    description: "A modern, high-performance portfolio website built with Next.js 14, Tailwind CSS, and Shadcn UI. Features dark mode and particle effects.",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    githubUrl: "https://github.com",
-    demoUrl: "/",
-  },
-  {
-    title: "IoT Weather Station",
-    description: "ESP32-based weather station transmitting data via MQTT to AWS IoT Core. Visualized with a custom React dashboard.",
-    tags: ["IoT", "ESP32", "AWS", "React", "MQTT"],
-    githubUrl: "https://github.com",
-  }
 ]
 
 export default function ProjectsPage() {
