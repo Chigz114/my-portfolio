@@ -1,115 +1,77 @@
 import Link from "next/link"
 import { getSortedPostsData } from "@/lib/blog"
-import { CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ArrowRight, Layers } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
+import { getCategoryInfo } from "@/lib/blog-categories"
+
+const formatCategoryKey = (category: string) => category.toLowerCase()
 
 export default function BlogPage() {
   const posts = getSortedPostsData()
-  
-  // Extract unique categories
-  const categories = Array.from(new Set(posts.map(post => post.category)))
 
-  const formatCategory = (cat: string) => {
-    if (cat.toLowerCase() === 'fpga') return 'FPGA'
-    if (cat.toLowerCase() === 'stm32') return 'STM32'
-    if (cat.toLowerCase() === 'pcb-design') return 'PCB-Design'
-    return cat.charAt(0).toUpperCase() + cat.slice(1)
-  }
-  
+  const categories = Array.from(
+    posts.reduce((map, post) => {
+      const list = map.get(post.category) ?? []
+      list.push(post)
+      map.set(post.category, list)
+      return map
+    }, new Map<string, typeof posts>())
+  )
+
   return (
     <section className="w-full px-4 md:px-8 py-8 md:py-10 flex flex-col items-center">
-      <div className="flex flex-col items-center gap-4 text-center">
+      <div className="flex flex-col items-center gap-4 text-center max-w-3xl">
         <div className="space-y-4">
+          <Badge variant="secondary" className="px-4 py-1 text-sm">
+            Blog Categories
+          </Badge>
           <h1 className="inline-block font-extrabold tracking-tight text-4xl lg:text-5xl">
-            Blog
+            技术博客知识库
           </h1>
-          <p className="text-xl text-muted-foreground">
-            Thoughts on engineering, tutorials, and dev logs.
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            精选工程项目的长篇记录。先选一个主题，再深入阅读对应系列文章。
           </p>
         </div>
       </div>
-      <hr className="w-full max-w-2xl my-8" />
-      
-      <Tabs defaultValue="all" className="w-full max-w-2xl">
-        <div className="flex justify-center mb-8">
-          <TabsList>
-            <TabsTrigger value="all">All Posts</TabsTrigger>
-            {categories.map(category => (
-              <TabsTrigger key={category} value={category}>
-                {formatCategory(category)}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-        </div>
+      <hr className="w-full max-w-4xl my-10" />
 
-        <TabsContent value="all" className="space-y-6">
-          {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
-        </TabsContent>
+      <div className="grid w-full max-w-5xl grid-cols-1 md:grid-cols-2 gap-6">
+        {categories.map(([category, list]) => {
+          const info = getCategoryInfo(category)
+          const encoded = encodeURIComponent(category)
 
-        {categories.map(category => (
-          <TabsContent key={category} value={category} className="space-y-6">
-            {category.toLowerCase() === "stm32" && (
-              <div className="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground">
-                <p>
-                  The self-balancing robot tutorials in this section are adapted from my Chinese articles 
-                  originally written for the <strong>Electronic Design Club</strong> at ZJUI 
-                  (Zhejiang University - University of Illinois Urbana-Champaign Joint Institute).{" "}
-                  Visit the club website:{" "}
-                  <a href="https://elec.marslab.xyz" className="text-primary hover:underline" target="_blank" rel="noopener noreferrer">
-                    elec.marslab.xyz
-                  </a>
+          return (
+            <Link
+              key={category}
+              href={`/blog/${encoded}`}
+              className="group relative overflow-hidden rounded-2xl border bg-background transition-all hover:border-primary/60 hover:shadow-xl"
+            >
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${info.accent} opacity-60 transition group-hover:opacity-80`}
+              />
+              <div className="relative p-6 space-y-4">
+                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <Layers className="h-4 w-4" />
+                  <span>{list.length} 篇文章</span>
+                </div>
+                <h2 className="text-2xl font-semibold">{info.title}</h2>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {info.description}
                 </p>
+                {info.badge && (
+                  <Badge variant="outline" className="rounded-full">
+                    {info.badge}
+                  </Badge>
+                )}
+                <div className="flex items-center text-primary font-medium pt-2">
+                  浏览系列
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
-            )}
-            {posts
-              .filter(post => post.category === category)
-              .map((post) => (
-                <BlogCard key={post.slug} post={post} />
-              ))}
-          </TabsContent>
-        ))}
-      </Tabs>
+            </Link>
+          )
+        })}
+      </div>
     </section>
-  )
-}
-
-function BlogCard({ post }: { post: any }) {
-  const formatCategory = (cat: string) => {
-    if (cat.toLowerCase() === 'fpga') return 'FPGA'
-    if (cat.toLowerCase() === 'stm32') return 'STM32'
-    if (cat.toLowerCase() === 'pcb-design') return 'PCB-Design'
-    return cat.charAt(0).toUpperCase() + cat.slice(1)
-  }
-
-  return (
-    <Link href={`/blog/${post.category}/${post.slug}`} className="block group">
-      <SpotlightCard className="h-full" spotlightColor="rgba(255, 255, 255, 0.1)">
-        <CardHeader>
-          <div className="flex justify-between items-start">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2">
-                <Badge variant="outline" className="text-xs uppercase">{formatCategory(post.category)}</Badge>
-                <span className="text-sm text-muted-foreground">{post.date}</span>
-              </div>
-              <CardTitle className="text-xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
-            </div>
-          </div>
-          <CardDescription className="pt-2">{post.description}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex gap-2">
-            {post.tags.map((tag: string) => (
-              <Badge key={tag} variant="secondary" className="text-xs">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        </CardContent>
-      </SpotlightCard>
-    </Link>
   )
 }

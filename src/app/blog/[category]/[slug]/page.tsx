@@ -39,9 +39,9 @@ export default async function BlogPost({ params }: BlogPostParams) {
       <article className="container max-w-3xl py-8 md:py-10 mx-auto">
         <div className="flex items-center gap-4 mb-8">
           <Button variant="ghost" asChild className="pl-0 hover:bg-transparent hover:text-primary">
-            <Link href="/blog">
+            <Link href={`/blog/${encodeURIComponent(post.category)}`}>
               <ChevronLeft className="mr-2 h-4 w-4" />
-              Back to Blog
+              返回分类
             </Link>
           </Button>
           <div className="ml-auto">
