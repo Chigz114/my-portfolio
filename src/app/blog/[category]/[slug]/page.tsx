@@ -11,6 +11,7 @@ import { ChevronLeft } from "lucide-react"
 import { ZoomableImage } from "@/components/zoomable-image"
 import { ReadingProgress } from "@/components/reading-progress"
 import { CodeBlock } from "@/components/code-block"
+import { MermaidDiagram } from "@/components/mermaid"
 import { Comments } from "@/components/comments"
 
 interface BlogPostParams {
@@ -81,6 +82,11 @@ export default async function BlogPost({ params }: BlogPostParams) {
                 const codeElement = (children as any)?.props
                 const className = codeElement?.className || ''
                 const code = codeElement?.children || ''
+
+                if (className.includes("language-mermaid")) {
+                  return <MermaidDiagram chart={String(code).trim()} />
+                }
+
                 return (
                   <CodeBlock className={className}>
                     {String(code).replace(/\n$/, '')}
