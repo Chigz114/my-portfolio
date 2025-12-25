@@ -8,7 +8,7 @@ const projects = [
     tags: ["ESP32", "IoT", "BLE", "MQTT", "NimBLE", "ESP-IDF"],
     githubUrl: "https://github.com",
     demoUrl: "/blog/ESP32",
-    detailsUrl: "/blog/ESP32/0.project-overview",
+    detailsUrl: "/blog/ESP32",
   },
   {
     title: "FPGA tinyGPU",
@@ -17,7 +17,7 @@ const projects = [
     tags: ["FPGA", "Verilog", "Graphics", "tinyGPU"],
     githubUrl: "https://github.com",
     demoUrl: "/blog/FPGA",
-    detailsUrl: "/blog/FPGA/1.big-picture",
+    detailsUrl: "/blog/FPGA",
   },
   {
     title: "STM32 Self-Balancing Robot",
@@ -26,7 +26,7 @@ const projects = [
     tags: ["STM32", "Embedded", "Robotics", "PID"],
     githubUrl: "https://github.com",
     demoUrl: "/blog/STM32",
-    detailsUrl: "/blog/STM32/0.project-overview",
+    detailsUrl: "/blog/STM32",
   },
 ]
 
