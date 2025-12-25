@@ -1,5 +1,4 @@
 import Link from "next/link"
-import type { ReactNode } from "react"
 import { getSortedPostsData } from "@/lib/blog"
 import { getCategoryInfo } from "@/lib/blog-categories"
 import { Badge } from "@/components/ui/badge"
@@ -34,13 +33,13 @@ export default async function BlogCategoryPage({ params }: BlogCategoryParams) {
       <div className="w-full max-w-4xl mx-auto space-y-6 text-center">
         <Button variant="ghost" asChild className="mx-auto w-fit gap-2">
           <Link href="/blog">
-            <ChevronLeft className="h-4 w-4" /> 返回分类总览
+            <ChevronLeft className="h-4 w-4" /> Back to Categories
           </Link>
         </Button>
         <div className="space-y-4">
           <div className="flex justify-center gap-3 text-sm text-muted-foreground">
             <Layers className="h-4 w-4" />
-            <span>{postCount} 篇文章</span>
+            <span>{postCount} posts</span>
           </div>
           <h1 className="inline-block font-extrabold tracking-tight text-4xl lg:text-5xl">
             {info.title}
@@ -56,8 +55,8 @@ export default async function BlogCategoryPage({ params }: BlogCategoryParams) {
         </div>
         {decodedCategory.toLowerCase() === "stm32" && (
           <div className="rounded-lg border bg-muted/50 p-4 text-sm text-muted-foreground text-left">
-            该系列文章来源于我在 ZJUI 电子设计俱乐部发表的中文教程，现整理为英文/双语版本。
-            原始站点：
+            This series originates from tutorials I wrote for the ZJUI Electronic Design Club (Chinese).
+            Source site:
             <a
               href="https://elec.marslab.xyz"
               className="text-primary hover:underline ml-1"
@@ -81,7 +80,7 @@ export default async function BlogCategoryPage({ params }: BlogCategoryParams) {
               className="h-full"
               spotlightColor="rgba(255, 255, 255, 0.08)"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 p-5 sm:p-6">
                 <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                   <Badge variant="outline" className="uppercase tracking-wide">
                     {post.category}
@@ -111,7 +110,7 @@ export default async function BlogCategoryPage({ params }: BlogCategoryParams) {
 
         {posts.length === 0 && (
           <div className="rounded-lg border border-dashed p-8 text-center text-muted-foreground">
-            暂无文章，敬请期待。
+            No posts yet. Stay tuned.
           </div>
         )}
       </div>

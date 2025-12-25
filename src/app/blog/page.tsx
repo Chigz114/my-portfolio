@@ -22,14 +22,11 @@ export default function BlogPage() {
     <section className="w-full px-4 md:px-8 py-8 md:py-10 flex flex-col items-center">
       <div className="flex flex-col items-center gap-4 text-center max-w-3xl">
         <div className="space-y-4">
-          <Badge variant="secondary" className="px-4 py-1 text-sm">
-            Blog Categories
-          </Badge>
           <h1 className="inline-block font-extrabold tracking-tight text-4xl lg:text-5xl">
-            技术博客知识库
+            Engineering Knowledge Base
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            精选工程项目的长篇记录。先选一个主题，再深入阅读对应系列文章。
+            Choose a topic to dive into deep-dive tutorials and project writeups.
           </p>
         </div>
       </div>
@@ -52,7 +49,7 @@ export default function BlogPage() {
               <div className="relative p-6 space-y-4">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Layers className="h-4 w-4" />
-                  <span>{list.length} 篇文章</span>
+                  <span>{list.length} posts</span>
                 </div>
                 <h2 className="text-2xl font-semibold">{info.title}</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -64,7 +61,7 @@ export default function BlogPage() {
                   </Badge>
                 )}
                 <div className="flex items-center text-primary font-medium pt-2">
-                  浏览系列
+                  View series
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
