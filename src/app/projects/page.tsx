@@ -10,6 +10,24 @@ const projects = [
     demoUrl: "/blog/ESP32",
     detailsUrl: "/blog/ESP32/0.project-overview",
   },
+  {
+    title: "FPGA tinyGPU",
+    description:
+      "A custom tinyGPU pipeline implemented on FPGA, documenting the architecture, rendering path, and display pipeline optimizations.",
+    tags: ["FPGA", "Verilog", "Graphics", "tinyGPU"],
+    githubUrl: "https://github.com",
+    demoUrl: "/blog/FPGA",
+    detailsUrl: "/blog/FPGA/1.big-picture",
+  },
+  {
+    title: "STM32 Self-Balancing Robot",
+    description:
+      "Two-wheeled self-balancing robot using STM32F103C8T6, covering IMU fusion, motor control, and PID stabilization tutorials.",
+    tags: ["STM32", "Embedded", "Robotics", "PID"],
+    githubUrl: "https://github.com",
+    demoUrl: "/blog/STM32",
+    detailsUrl: "/blog/STM32/0.project-overview",
+  },
 ]
 
 export default function ProjectsPage() {
