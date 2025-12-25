@@ -8,6 +8,7 @@ const projects = [
     tags: ["ESP32", "IoT", "BLE", "MQTT", "NimBLE", "ESP-IDF"],
     githubUrl: "https://github.com",
     demoUrl: "/blog/ESP32",
+    detailsUrl: "/blog/ESP32/0.project-overview",
   },
 ]
 

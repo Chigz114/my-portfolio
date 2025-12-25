@@ -18,6 +18,7 @@ interface ProjectCardProps {
   tags: string[]
   githubUrl?: string
   demoUrl?: string
+  detailsUrl?: string
   imageSrc?: string
 }
 
@@ -27,6 +28,7 @@ export function ProjectCard({
   tags,
   githubUrl,
   demoUrl,
+  detailsUrl,
   imageSrc = "/project-placeholder.jpg", // You'll need to add a placeholder image
 }: ProjectCardProps) {
   return (
@@ -58,9 +60,16 @@ export function ProjectCard({
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex gap-2 pt-2">
+      <CardFooter className="flex gap-2 pt-2 flex-wrap">
+        {detailsUrl && (
+          <Button variant="secondary" size="sm" className="flex-1 min-w-[120px]" asChild>
+            <Link href={detailsUrl}>
+              Learn More
+            </Link>
+          </Button>
+        )}
         {githubUrl && (
-          <Button variant="outline" size="sm" className="flex-1" asChild>
+          <Button variant="outline" size="sm" className="flex-1 min-w-[120px]" asChild>
             <Link href={githubUrl} target="_blank" rel="noreferrer">
               <Github className="mr-2 h-4 w-4" />
               Code
@@ -68,7 +77,7 @@ export function ProjectCard({
           </Button>
         )}
         {demoUrl && (
-          <Button size="sm" className="flex-1" asChild>
+          <Button size="sm" className="flex-1 min-w-[120px]" asChild>
             <Link href={demoUrl} target="_blank" rel="noreferrer">
               <Globe className="mr-2 h-4 w-4" />
               Demo
