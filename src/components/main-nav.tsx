@@ -13,21 +13,28 @@ export function MainNav() {
   const pathname = usePathname()
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/"
+    }
+    return pathname === href || pathname.startsWith(`${href}/`)
+  }
+
   const routes = [
+    {
+      href: "/",
+      label: "Home",
+      active: isActive("/"),
+    },
     {
       href: "/projects",
       label: "Projects",
-      active: pathname === "/projects",
+      active: isActive("/projects"),
     },
     {
       href: "/blog",
       label: "Blog",
-      active: pathname === "/blog",
-    },
-    {
-      href: "/about",
-      label: "About",
-      active: pathname === "/about",
+      active: isActive("/blog"),
     },
   ]
 
@@ -38,7 +45,7 @@ export function MainNav() {
           <Link href="/" className="mr-6 flex items-center space-x-2">
             <CircuitBoard className="h-6 w-6" />
             <span className="hidden font-bold sm:inline-block">
-              Portfolio
+              Guanzhang Chi
             </span>
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
@@ -66,7 +73,7 @@ export function MainNav() {
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-2">
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://github.com" target="_blank" rel="noreferrer">
+              <Link href="https://github.com/Chigz114" target="_blank" rel="noreferrer">
                 {/* GitHub Icon would go here, using text for now or lucide */}
                 <span className="font-bold">GH</span>
                 <span className="sr-only">GitHub</span>

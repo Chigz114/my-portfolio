@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Engineering Portfolio",
-  description: "Showcase of engineering projects and code.",
+  title: "Guanzhang Chi | Robotics & Autonomy Portfolio",
+  description: "Application-focused portfolio featuring robotics, autonomous systems, and embedded engineering projects.",
 };
 
 export default function RootLayout({

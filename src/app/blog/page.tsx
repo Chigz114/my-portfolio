@@ -4,8 +4,6 @@ import { ArrowRight, Layers } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { getCategoryInfo } from "@/lib/blog-categories"
 
-const formatCategoryKey = (category: string) => category.toLowerCase()
-
 export default function BlogPage() {
   const posts = getSortedPostsData()
 
@@ -26,7 +24,7 @@ export default function BlogPage() {
             Engineering Knowledge Base
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Choose a topic to dive into deep-dive tutorials and project writeups.
+            Learning notes and tutorial series. For curated project showcases, please visit the Projects page.
           </p>
         </div>
       </div>
