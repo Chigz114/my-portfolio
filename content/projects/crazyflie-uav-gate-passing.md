@@ -10,7 +10,7 @@ imageSrc: "https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/56
 
 ## Overview
 
-This project targets safe autonomous gate passing for a Crazyflie UAV in uncertain environments. The core challenge is balancing control stability and perception robustness under limited onboard compute and constrained experimental conditions.
+This project targets safe autonomous gate passing for a Crazyflie UAV in certain environments. The core challenge is balancing control stability and perception robustness under limited onboard compute and constrained experimental conditions.
 
 ## System Architecture
 

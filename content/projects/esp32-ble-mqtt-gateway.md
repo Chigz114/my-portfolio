@@ -4,6 +4,7 @@ date: "2025-12"
 description: "Low-power BLE relay system with custom PCB power architecture and MQTT-based long-range signal forwarding."
 tags: ["ESP32", "PCB", "Low Power", "BLE", "MQTT"]
 order: 4
+imageSrc: "https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/f5dd3ea3887e412a82e0ddd64612f594.png"
 ---
 
 ## Overview
@@ -16,7 +17,11 @@ This project bridges short-range BLE broadcast signals to cloud-connected MQTT t
 - Relay node: ESP32 subscriber re-broadcasts received payloads locally.
 - Power chain: USB-C PD trigger + BQ25895 power-path + Li-ion backup + 3.3V buck-boost.
 
-> Architecture figure: _To be added_
+![image-20260325195417040](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/a241cb22e5cc2dfcb9043d23726f583e.png)
+
+![7f09d5bbf4a9e57fff37967bb223e8e3](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/fc4b206f8b4114c3a898ffc1d9ad5bab.png)
+
+![c553e271adf88d0a180afe69d1b2baff](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/d5b6e18270666dc3533b71a04216d774.png)
 
 ## My Role
 
@@ -36,10 +41,7 @@ This project bridges short-range BLE broadcast signals to cloud-connected MQTT t
 - Reached around 10 uA deep-sleep current in documentation tests.
 - Validated stable BLE data forwarding via MQTT relay workflow.
 
-## Demo
-
-- Demo video/GIF: _To be added_
-- Hardware photo: _To be added_
+![764896133b8823c5d2323fef3787162f](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/9d5489d73cffb2fee0c8297429650e4b.jpg)
 
 ## Related Technical Blog
 
