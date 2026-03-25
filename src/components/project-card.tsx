@@ -29,7 +29,7 @@ export function ProjectCard({
   githubUrl,
   demoUrl,
   detailsUrl,
-  imageSrc = "/images/projects/project-placeholder.svg",
+  imageSrc,
 }: ProjectCardProps) {
   return (
     <div className="relative h-full">
@@ -41,14 +41,18 @@ export function ProjectCard({
         />
       )}
       <Card className="flex flex-col overflow-hidden h-full border-2 hover:border-primary/50 transition-colors">
-        <div className="relative aspect-video w-full overflow-hidden bg-muted">
-          <Image
-            src={imageSrc}
-            alt={title}
-            fill
-            className="object-cover transition-transform hover:scale-105"
-          />
-        </div>
+        {imageSrc ? (
+          <div className="relative aspect-video w-full overflow-hidden bg-muted">
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              className="object-cover transition-transform hover:scale-105"
+            />
+          </div>
+        ) : (
+          <div className="aspect-video w-full bg-zinc-200 dark:bg-zinc-800" />
+        )}
         <CardHeader>
           <CardTitle className="text-xl">{title}</CardTitle>
           <CardDescription className="line-clamp-3 min-h-[4.5rem]">
