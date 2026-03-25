@@ -1,7 +1,9 @@
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getSortedProjectsData } from "@/lib/projects";
 
 export default function Home() {
+  const projects = getSortedProjectsData();
+
   return (
     <div className="w-full bg-white dark:bg-background">
       <section className="w-full px-4 md:px-8 py-10 md:py-14">
@@ -32,40 +34,20 @@ export default function Home() {
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-center justify-between gap-3 flex-wrap">
-              <h2 className="text-2xl font-bold tracking-tight text-[#1f2937] dark:text-foreground">Representative Projects</h2>
-              <Button variant="outline" asChild>
-                <Link href="/projects">View All Projects</Link>
-              </Button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Link
-                href="/projects/crazyflie-uav-gate-passing"
-                className="rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 transition-colors hover:border-slate-500 transform-none"
-              >
-                <h3 className="font-semibold text-[#1f2937] dark:text-foreground">Crazyflie UAV Gate Passing</h3>
-                <p className="mt-2 text-sm md:text-[14px] leading-relaxed text-[#333] dark:text-slate-200">
-                  Autonomous gate-passing control for Crazyflie UAV with EKF-fused visual and dynamics-based state estimation; completed simulation and real-flight demo.
-                </p>
-              </Link>
-              <Link
-                href="/projects/edc-auto-aiming-tracking-car"
-                className="rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 transition-colors hover:border-slate-500 transform-none"
-              >
-                <h3 className="font-semibold text-[#1f2937] dark:text-foreground">EDC Tracking Car + Auto-Aiming</h3>
-                <p className="mt-2 text-sm md:text-[14px] leading-relaxed text-[#333] dark:text-slate-200">
-                  Led end-to-end integration of STM32-based tracking chassis and auto-aiming gimbal, achieving centimeter-level static targeting accuracy.
-                </p>
-              </Link>
-              <Link
-                href="/projects/tic-tac-toe-robot-system"
-                className="rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 transition-colors hover:border-slate-500 transform-none"
-              >
-                <h3 className="font-semibold text-[#1f2937] dark:text-foreground">Tic-Tac-Toe Robot System</h3>
-                <p className="mt-2 text-sm md:text-[14px] leading-relaxed text-[#333] dark:text-slate-200">
-                  Vision-guided human-machine game robot combining alpha-beta decision making with 3-axis stepper motion and robust interaction control.
-                </p>
-              </Link>
+            <h2 className="text-2xl font-bold tracking-tight text-[#1f2937] dark:text-foreground">Projects</h2>
+            <div className="space-y-3">
+              {projects.map((project) => (
+                <Link
+                  key={project.slug}
+                  href={`/projects/${project.slug}`}
+                  className="block border-l-4 border-black pl-4 py-3 pr-2 bg-slate-100/70 dark:bg-slate-900/70 transition-colors hover:bg-slate-200/70 dark:hover:bg-slate-800/70"
+                >
+                  <h3 className="text-[22px] md:text-[24px] font-semibold leading-snug text-[#1f2937] dark:text-foreground">
+                    {project.title}
+                  </h3>
+                  <p className="mt-1 text-base leading-relaxed text-[#333] dark:text-slate-200">{project.description}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
