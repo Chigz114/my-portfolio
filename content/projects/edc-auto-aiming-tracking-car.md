@@ -4,7 +4,7 @@ date: "2025-08"
 description: "Led system architecture and implementation for a tracking chassis + STM32 stepper gimbal auto-aiming platform, achieving centimeter-level static accuracy."
 tags: ["Robotics", "Embedded", "System Integration", "Control", "Vision"]
 order: 2
-imageSrc: "/images/projects/edc-gimbal-system.svg"
+imageSrc: "https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/7251bdf8ba12f944dfe4b9410454b534.png"
 ---
 
 ## Overview
@@ -18,7 +18,21 @@ As team leader in the 2025 National Undergraduate Electronic Design Contest, I b
 - Actuation: stepper gimbal with PID closed-loop tracking.
 - Fast response: 9-axis IMU initialized rapid turn-to-target, followed by visual fine-tracking.
 
-> Architecture figure: _To be added_
+![image-20260325132838321](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/7251bdf8ba12f944dfe4b9410454b534.png)
+
+
+
+### Tripod Head System
+
+![image-20260325133054396](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/b410d4281c946a5154bc806bb9bca8b5.png)
+
+
+
+### Tracking Car System
+
+![image-20260325133201625](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/30833c71fac0f0df4acfefa8647376c7.png)
+
+
 
 ## My Role
 
@@ -42,3 +56,5 @@ As team leader in the 2025 National Undergraduate Electronic Design Contest, I b
 
 - Demo video/GIF: _To be added_
 - Hardware photo: _To be added_
+
+![91f6085d4ab49272c9129f07b7e7ba23](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/8d015ef202ee6ede7e9b2a98a907524b.gif)
