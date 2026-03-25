@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ChevronLeft, CalendarIcon, Image as ImageIcon, Video } from "lucide-react"
+import { ChevronLeft, CalendarIcon } from "lucide-react"
 import { getProjectData, getSortedProjectsData } from "@/lib/projects"
 import { notFound } from "next/navigation"
 
@@ -61,22 +61,6 @@ export default async function ProjectDetailPage({ params }: ProjectDetailParams)
       </div>
 
       <hr className="my-8" />
-
-      <section className="mb-10 space-y-4">
-        <h2 className="text-2xl font-bold tracking-tight text-center">Media Showcase</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="rounded-xl border border-dashed bg-muted/30 p-6 flex flex-col items-center justify-center gap-3 text-center min-h-40">
-            <Video className="h-7 w-7 text-muted-foreground" />
-            <p className="font-medium">Demo Video Placeholder</p>
-            <p className="text-sm text-muted-foreground">Add project demo video or GIF here.</p>
-          </div>
-          <div className="rounded-xl border border-dashed bg-muted/30 p-6 flex flex-col items-center justify-center gap-3 text-center min-h-40">
-            <ImageIcon className="h-7 w-7 text-muted-foreground" />
-            <p className="font-medium">Project Image Placeholder</p>
-            <p className="text-sm text-muted-foreground">Add hardware photo, result screenshot, or system diagram here.</p>
-          </div>
-        </div>
-      </section>
 
       <div className="prose dark:prose-invert max-w-none">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{project.content}</ReactMarkdown>

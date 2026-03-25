@@ -32,6 +32,10 @@ As team leader in the 2025 National Undergraduate Electronic Design Contest, I b
 
 ![image-20260325133201625](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/30833c71fac0f0df4acfefa8647376c7.png)
 
+### Tracking Demo
+
+![91f6085d4ab49272c9129f07b7e7ba23](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/8d015ef202ee6ede7e9b2a98a907524b.gif)
+
 
 
 ## My Role
@@ -51,10 +55,3 @@ As team leader in the 2025 National Undergraduate Electronic Design Contest, I b
 - Static base: center drift < 3 cm, jitter < 1 cm.
 - Moving tracking base: center drift and jitter < 10 cm.
 - Award: National Second Prize in the 2025 contest.
-
-## Demo
-
-- Demo video/GIF: _To be added_
-- Hardware photo: _To be added_
-
-![91f6085d4ab49272c9129f07b7e7ba23](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/8d015ef202ee6ede7e9b2a98a907524b.gif)

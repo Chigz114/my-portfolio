@@ -38,6 +38,10 @@ This project delivers a full tic-tac-toe human-machine game system for the EDC i
 
 ![image-20260325125725315](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/272a701f0f888626dfbcecb48958c099.png)
 
+### Gameplay Demo
+
+![d199a2eac21b870c7aecbdfc11ec2351 (2)](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/b907fc9782c9d2d77d7553a542c91c42.gif)
+
 
 
 ## My Role
@@ -57,10 +61,3 @@ This project delivers a full tic-tac-toe human-machine game system for the EDC i
 - Won 1st place in the 2025 EDC internal selection (Problem E).
 - Maintained stable piece placement within board cells during repeated runs.
 - Supported human-first / machine-first and recovery from cheating events.
-
-## Demo
-
-- Demo video/GIF: _To be added_
-- System photo: _To be added_
-
-![d199a2eac21b870c7aecbdfc11ec2351 (2)](https://pub-0ab03177c0ad483e9a1c13d6bd8704cb.r2.dev/typora/2026/03/b907fc9782c9d2d77d7553a542c91c42.gif)
