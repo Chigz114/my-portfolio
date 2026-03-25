@@ -5,6 +5,7 @@ description: "Built a scanline-based hardware rendering architecture on Spartan-
 tags: ["FPGA", "SystemVerilog", "Graphics Pipeline", "AXI", "Vivado"]
 order: 5
 githubUrl: "https://github.com/Chigz114/ece385-tinyGPU"
+imageSrc: "/images/blog/fpga/renderer.svg"
 ---
 
 ## Overview

@@ -4,7 +4,7 @@ date: "2025-08"
 description: "Led system architecture and implementation for a tracking chassis + STM32 stepper gimbal auto-aiming platform, achieving centimeter-level static accuracy."
 tags: ["Robotics", "Embedded", "System Integration", "Control", "Vision"]
 order: 2
-githubUrl: "https://github.com/Chigz114"
+imageSrc: "/images/projects/edc-gimbal-system.svg"
 ---
 
 ## Overview

@@ -29,25 +29,21 @@ export function ProjectCard({
   githubUrl,
   demoUrl,
   detailsUrl,
-  imageSrc = "/project-placeholder.jpg", // You'll need to add a placeholder image
+  imageSrc = "/images/projects/project-placeholder.svg",
 }: ProjectCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden h-full border-2 hover:border-primary/50 transition-colors">
       <div className="relative aspect-video w-full overflow-hidden bg-muted">
-        {/* Placeholder for Image - In real use, uncomment Image component */}
-        {/* <Image
+        <Image
           src={imageSrc}
           alt={title}
           fill
           className="object-cover transition-transform hover:scale-105"
-        /> */}
-        <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-            <span className="text-sm">Project Image Placeholder</span>
-        </div>
+        />
       </div>
       <CardHeader>
         <CardTitle className="text-xl">{title}</CardTitle>
-        <CardDescription className="line-clamp-2">
+        <CardDescription className="line-clamp-3 min-h-[4.5rem]">
           {description}
         </CardDescription>
       </CardHeader>

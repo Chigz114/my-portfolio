@@ -4,7 +4,7 @@ date: "2025-06"
 description: "Integrated a vision-guided 3-axis robotic game system with alpha-beta decision making, stepper control, and robust interaction modes."
 tags: ["System Integration", "Embedded", "Motion Control", "Machine Vision"]
 order: 3
-githubUrl: "https://github.com/Chigz114"
+imageSrc: "/images/projects/tictactoe-system.svg"
 ---
 
 ## Overview

@@ -4,7 +4,6 @@ date: "2024-08"
 description: "Built a two-wheeled balancing robot using STM32F103 with IMU fusion, Kalman filtering, and PID closed-loop control."
 tags: ["STM32", "Control", "Kalman Filter", "PID", "Embedded"]
 order: 6
-githubUrl: "https://github.com/Chigz114"
 ---
 
 ## Overview

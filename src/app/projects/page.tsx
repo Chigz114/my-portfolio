@@ -27,6 +27,7 @@ export default function ProjectsPage() {
             githubUrl={project.githubUrl}
             demoUrl={project.demoUrl}
             detailsUrl={`/projects/${project.slug}`}
+            imageSrc={project.imageSrc}
           />
         ))}
       </div>

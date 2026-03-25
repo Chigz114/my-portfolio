@@ -5,6 +5,7 @@ description: "State-based, vision-based, and EKF-fusion control for safe autonom
 tags: ["UAV", "Motion Planning", "State Estimation", "EKF", "Vision"]
 order: 1
 githubUrl: "https://github.com/Chigz114/ece484_final"
+imageSrc: "/images/projects/crazyflie-system.svg"
 ---
 
 ## Overview

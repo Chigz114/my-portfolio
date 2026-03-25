@@ -4,7 +4,6 @@ date: "2025-12"
 description: "Low-power BLE relay system with custom PCB power architecture and MQTT-based long-range signal forwarding."
 tags: ["ESP32", "PCB", "Low Power", "BLE", "MQTT"]
 order: 4
-githubUrl: "https://github.com/Chigz114"
 ---
 
 ## Overview

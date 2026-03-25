@@ -13,6 +13,7 @@ export type Project = {
   order: number
   githubUrl?: string
   demoUrl?: string
+  imageSrc?: string
   content: string
 }
 
@@ -42,6 +43,7 @@ export function getSortedProjectsData(): Project[] {
           order: number
           githubUrl?: string
           demoUrl?: string
+          imageSrc?: string
         }),
       }
     })
@@ -65,6 +67,7 @@ export function getProjectData(slug: string): Project {
       order: number
       githubUrl?: string
       demoUrl?: string
+      imageSrc?: string
     }),
   }
 }

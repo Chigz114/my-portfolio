@@ -17,48 +17,24 @@ export default function Home() {
             <p className="text-sm md:text-base text-muted-foreground">
               Zhejiang University-University of Illinois Urbana-Champaign Institute (ZJUI) · Electrical Engineering · Junior
             </p>
-            <p className="max-w-3xl mx-auto text-lg text-muted-foreground sm:text-xl">
-              Junior in Electrical Engineering at ZJU-UIUC Institute (ZJUI), focusing on autonomous UAV systems,
-              motion planning, and state estimation for real-world robotic autonomy.
+            <p className="text-sm md:text-base text-muted-foreground">
+              guanzhang.23@intl.zju.edu.cn · gc43@illinois.edu · github.com/Chigz114
+            </p>
+            <p className="text-sm md:text-base text-muted-foreground">
+              UIUC GPA: 3.97/4.00 · ZJUI GPA: 3.88/4.00 · Rank: 1/70 · Expected Graduation: Jun 2027
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="rounded-xl border bg-background/80 p-4 text-center">
-              <p className="text-sm text-muted-foreground">UIUC GPA</p>
-              <p className="text-2xl font-bold">3.97 / 4.00</p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-4 text-center">
-              <p className="text-sm text-muted-foreground">ZJUI GPA</p>
-              <p className="text-2xl font-bold">3.88 / 4.00</p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-4 text-center">
-              <p className="text-sm text-muted-foreground">Major Rank</p>
-              <p className="text-2xl font-bold">1 / 70</p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-4 text-center">
-              <p className="text-sm text-muted-foreground">Expected Graduation</p>
-              <p className="text-2xl font-bold">Jun 2027</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="rounded-xl border bg-background/80 p-6 space-y-4">
-              <h2 className="text-xl font-semibold">Research Interests</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Autonomous UAV systems, path and motion planning, multi-sensor fusion, state estimation, and practical
-                deployment of autonomous navigation systems.
-              </p>
-            </div>
-            <div className="rounded-xl border bg-background/80 p-6 space-y-4">
-              <h2 className="text-xl font-semibold">Contact & Awards</h2>
-              <div className="text-muted-foreground space-y-2">
-                <p>Email: guanzhang.23@intl.zju.edu.cn / gc43@illinois.edu</p>
-                <p>GitHub: github.com/Chigz114</p>
-                <p>Location: Haining, Zhejiang, China</p>
-                <p>Awards: National Scholarship (2025), Zhejiang Provincial Government Scholarship (2024)</p>
-              </div>
-            </div>
+          <div className="mx-auto max-w-4xl space-y-3 text-center">
+            <h2 className="text-2xl font-bold tracking-tight">Research Interests</h2>
+            <p className="text-muted-foreground leading-relaxed md:text-lg">
+              I focus on autonomous UAV systems, path and motion planning, and state estimation under real-world constraints.
+              My recent work explores visual localization, dynamics-informed estimation, and integrated control pipelines
+              for robust autonomous navigation.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Awards: National Scholarship (2025) · Zhejiang Provincial Government Scholarship (2024)
+            </p>
           </div>
 
           <div className="space-y-4">
@@ -71,15 +47,15 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Link href="/projects/crazyflie-uav-gate-passing" className="rounded-xl border bg-background/80 p-5 hover:border-primary/60 transition-colors">
                 <h3 className="font-semibold">Crazyflie UAV Gate Passing</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Trajectory planning, visual localization, EKF fusion, and safe autonomous control.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Autonomous gate-passing control for Crazyflie UAV with EKF-fused visual and dynamics-based state estimation; completed simulation and real-flight demo.</p>
               </Link>
               <Link href="/projects/edc-auto-aiming-tracking-car" className="rounded-xl border bg-background/80 p-5 hover:border-primary/60 transition-colors">
                 <h3 className="font-semibold">EDC Tracking Car + Auto-Aiming</h3>
-                <p className="mt-2 text-sm text-muted-foreground">STM32 system integration, visual targeting pipeline, and closed-loop tracking.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Led end-to-end integration of STM32-based tracking chassis and auto-aiming gimbal, achieving centimeter-level static targeting accuracy.</p>
               </Link>
               <Link href="/projects/tic-tac-toe-robot-system" className="rounded-xl border bg-background/80 p-5 hover:border-primary/60 transition-colors">
                 <h3 className="font-semibold">Tic-Tac-Toe Robot System</h3>
-                <p className="mt-2 text-sm text-muted-foreground">Vision-guided game robot with alpha-beta decision and 3-axis motion control.</p>
+                <p className="mt-2 text-sm text-muted-foreground">Vision-guided human-machine game robot combining alpha-beta decision making with 3-axis stepper motion and robust interaction control.</p>
               </Link>
             </div>
           </div>
